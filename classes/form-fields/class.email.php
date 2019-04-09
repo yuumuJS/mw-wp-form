@@ -46,6 +46,7 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 			'value'       => '',
 			'placeholder' => null,
 			'pattern'     => null,
+			'required'    => 'false',
 			'show_error'  => 'true',
 			'conv_half_alphanumeric' => 'true',
 		);
@@ -63,6 +64,10 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 		if ( 'true' !== $this->atts['conv_half_alphanumeric'] ) {
 			$conv_half_alphanumeric = null;
 		}
+		$required = 'true';
+		if ( 'true' !== $this->atts['required'] ) {
+			$required = null;
+		}
 		$value = $this->Data->get_raw( $this->atts['name'] );
 		if ( is_null( $value ) ) {
 			$value = $this->atts['value'];
@@ -76,6 +81,7 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 			'value'       => $value,
 			'placeholder' => $this->atts['placeholder'],
 			'pattern'     => $this->atts['pattern'],
+			'required'    => $required,
 			'conv-half-alphanumeric' => $conv_half_alphanumeric,
 		) );
 		if ( 'false' !== $this->atts['show_error'] ) {
@@ -146,6 +152,11 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 			<strong>pattern</strong>
 			<?php $pattern = $this->get_value_for_generator( 'pattern', $options ); ?>
 			<input type="text" name="pattern" value="<?php echo esc_attr( $pattern ); ?>" />
+		</p>
+		<p>
+			<strong><?php esc_html_e( 'required', 'mw-wp-form' ); ?></strong>
+			<?php $required = $this->get_value_for_generator( 'required', $options ); ?>
+			<label><input type="checkbox" name="required" value="false" <?php checked( 'false', $required ); ?> /> <?php esc_html_e( 'Don\'t Convert.', 'mw-wp-form' ); ?></label>
 		</p>
 		<p>
 			<strong><?php esc_html_e( 'Display error', 'mw-wp-form' ); ?></strong>

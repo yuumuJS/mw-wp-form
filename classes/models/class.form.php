@@ -231,6 +231,7 @@ class MW_WP_Form_Form {
 			'value'       => '',
 			'placeholder' => null,
 			'pattern'     => null,
+			'required'    => null,
 			'conv-half-alphanumeric' => null,
 		);
 
@@ -260,8 +261,10 @@ class MW_WP_Form_Form {
 			'value'       => '',
 			'placeholder' => null,
 			'pattern'     => null,
+			'required'    => null,
 			'conv-half-alphanumeric' => null,
 		);
+		
 		$options = shortcode_atts( $defaults, $options );
 		$options = array_merge( $options, array(
 			'name' => $name,
@@ -463,7 +466,9 @@ class MW_WP_Form_Form {
 			'value' => '',
 			'placeholder' => null,
 			'pattern' => null,
+			'required' => null,
 		);
+
 		$options = shortcode_atts( $defaults, $options );
 		$options = array_merge( $options, array(
 			'name' => $name,

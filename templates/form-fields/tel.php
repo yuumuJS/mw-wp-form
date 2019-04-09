@@ -7,6 +7,7 @@
 		<?php echo MWF_Functions::generate_input_attribute( 'value', $value ); ?>
 		<?php echo MWF_Functions::generate_input_attribute( 'placeholder', $placeholder ); ?>
 		<?php echo MWF_Functions::generate_input_attribute( 'pattern', $pattern ); ?>
+		<?php echo MWF_Functions::generate_input_attribute( 'required', $required ); ?>
 		<?php echo MWF_Functions::generate_input_attribute( 'data-conv-half-alphanumeric', $conv_half_alphanumeric ); ?>
 	/>
 </span>
