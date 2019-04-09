@@ -465,60 +465,13 @@ class MW_WP_Form_Form {
 			'pattern' => null,
 		);
 		$options = shortcode_atts( $defaults, $options );
-
-		$children  = array();
-		$separator = '-';
-
-		if ( is_array( $options['value'] ) ) {
-			$children = $options['value'];
-		} else {
-			$children = explode( $separator, $options['value'] );
-		}
-
-		$values = array( '', '', '' );
-		foreach ( $children as $key => $val ) {
-			if ( $key === 0 || $key === 1 || $key === 2 ) {
-				$values[ $key ] = $val;
-			}
-		}
+		$options = array_merge( $options, array(
+			'name' => $name,
+		) );
+		
 
 		return $this->remove_newline_space(
-			$this->_render( 'tel', array(
-				'separator' => $separator,
-				'fields'    => array(
-					array(
-						'name'      => $name . '[data][0]',
-						'class'     => $options['class'],
-						'size'      => 6,
-						'maxlength' => 5,
-						'value'     => $values[0],
-						'placeholder' => null,
-						'pattern' => null,
-						'conv-half-alphanumeric' => $options['conv-half-alphanumeric'],
-					),
-					array(
-						'name'      => $name . '[data][1]',
-						'class'     => $options['class'],
-						'size'      => 5,
-						'maxlength' => 4,
-						'value'     => $values[1],
-						'placeholder' => null,
-						'pattern' => null,
-						'conv-half-alphanumeric' => $options['conv-half-alphanumeric'],
-					),
-					array(
-						'name'      => $name . '[data][2]',
-						'class'     => $options['class'],
-						'size'      => 5,
-						'maxlength' => 4,
-						'value'     => $values[2],
-						'placeholder' => null,
-						'pattern' => null,
-						'conv-half-alphanumeric' => $options['conv-half-alphanumeric'],
-					),
-				),
-			) )
-			. $this->separator( $name, $separator )
+			$this->_render( 'tel', $options )
 		);
 	}
 
