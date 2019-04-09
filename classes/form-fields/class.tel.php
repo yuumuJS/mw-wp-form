@@ -41,6 +41,8 @@ class MW_WP_Form_Field_Tel extends MW_WP_Form_Abstract_Form_Field {
 			'name'       => '',
 			'class'      => null,
 			'value'      => '',
+			'placeholder' => null,
+			'pattern' => null,
 			'show_error' => 'true',
 			'conv_half_alphanumeric' => 'true',
 		);
@@ -68,6 +70,8 @@ class MW_WP_Form_Field_Tel extends MW_WP_Form_Abstract_Form_Field {
 
 		$_ret = $this->Form->tel( $this->atts['name'], array(
 			'class' => $this->atts['class'],
+			'placeholder' => $this->atts['placeholder'],
+			'pattern'     => $this->atts['pattern'],
 			'conv-half-alphanumeric' => $conv_half_alphanumeric,
 			'value' => $value,
 		) );
@@ -111,6 +115,16 @@ class MW_WP_Form_Field_Tel extends MW_WP_Form_Abstract_Form_Field {
 			<strong>class</strong>
 			<?php $class = $this->get_value_for_generator( 'class', $options ); ?>
 			<input type="text" name="class" value="<?php echo esc_attr( $class ); ?>" />
+		</p>
+		<p>
+			<strong>placeholder</strong>
+			<?php $pattern = $this->get_value_for_generator( 'placeholder', $options ); ?>
+			<input type="text" name="placeholder" value="<?php echo esc_attr( $placeholder ); ?>" />
+		</p>
+		<p>
+			<strong>pattern</strong>
+			<?php $pattern = $this->get_value_for_generator( 'pattern', $options ); ?>
+			<input type="text" name="pattern" value="<?php echo esc_attr( $pattern ); ?>" />
 		</p>
 		<p>
 			<strong><?php esc_html_e( 'Display error', 'mw-wp-form' ); ?></strong>

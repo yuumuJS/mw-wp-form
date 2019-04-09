@@ -230,6 +230,7 @@ class MW_WP_Form_Form {
 			'maxlength'   => null,
 			'value'       => '',
 			'placeholder' => null,
+			'pattern'     => null,
 			'conv-half-alphanumeric' => null,
 		);
 
@@ -258,6 +259,7 @@ class MW_WP_Form_Form {
 			'maxlength'   => null,
 			'value'       => '',
 			'placeholder' => null,
+			'pattern'     => null,
 			'conv-half-alphanumeric' => null,
 		);
 		$options = shortcode_atts( $defaults, $options );
@@ -459,6 +461,8 @@ class MW_WP_Form_Form {
 			'class' => null,
 			'conv-half-alphanumeric' => null,
 			'value' => '',
+			'placeholder' => null,
+			'pattern' => null,
 		);
 		$options = shortcode_atts( $defaults, $options );
 
@@ -488,6 +492,8 @@ class MW_WP_Form_Form {
 						'size'      => 6,
 						'maxlength' => 5,
 						'value'     => $values[0],
+						'placeholder' => null,
+						'pattern' => null,
 						'conv-half-alphanumeric' => $options['conv-half-alphanumeric'],
 					),
 					array(
@@ -496,6 +502,8 @@ class MW_WP_Form_Form {
 						'size'      => 5,
 						'maxlength' => 4,
 						'value'     => $values[1],
+						'placeholder' => null,
+						'pattern' => null,
 						'conv-half-alphanumeric' => $options['conv-half-alphanumeric'],
 					),
 					array(
@@ -504,6 +512,8 @@ class MW_WP_Form_Form {
 						'size'      => 5,
 						'maxlength' => 4,
 						'value'     => $values[2],
+						'placeholder' => null,
+						'pattern' => null,
 						'conv-half-alphanumeric' => $options['conv-half-alphanumeric'],
 					),
 				),

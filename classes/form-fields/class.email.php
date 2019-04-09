@@ -45,6 +45,7 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 			'maxlength'   => null,
 			'value'       => '',
 			'placeholder' => null,
+			'pattern'     => null,
 			'show_error'  => 'true',
 			'conv_half_alphanumeric' => 'true',
 		);
@@ -74,6 +75,7 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 			'maxlength'   => $this->atts['maxlength'],
 			'value'       => $value,
 			'placeholder' => $this->atts['placeholder'],
+			'pattern'     => $this->atts['pattern'],
 			'conv-half-alphanumeric' => $conv_half_alphanumeric,
 		) );
 		if ( 'false' !== $this->atts['show_error'] ) {
@@ -139,6 +141,11 @@ class MW_WP_Form_Field_Email extends MW_WP_Form_Abstract_Form_Field {
 			<strong>placeholder</strong>
 			<?php $placeholder = $this->get_value_for_generator( 'placeholder', $options ); ?>
 			<input type="text" name="placeholder" value="<?php echo esc_attr( $placeholder ); ?>" />
+		</p>
+		<p>
+			<strong>pattern</strong>
+			<?php $pattern = $this->get_value_for_generator( 'pattern', $options ); ?>
+			<input type="text" name="pattern" value="<?php echo esc_attr( $pattern ); ?>" />
 		</p>
 		<p>
 			<strong><?php esc_html_e( 'Display error', 'mw-wp-form' ); ?></strong>
