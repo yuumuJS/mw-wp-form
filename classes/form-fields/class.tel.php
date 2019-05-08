@@ -98,8 +98,7 @@ class MW_WP_Form_Field_Tel extends MW_WP_Form_Abstract_Form_Field {
 		$value     = $this->Data->get( $this->atts['name'] );
 		$separator = $this->Data->get_separator_value( $this->atts['name'] );
 		$_ret  = esc_html( $value );
-		$_ret .= $this->Form->hidden( $this->atts['name'] . '[data]', $value );
-		$_ret .= $this->Form->separator( $this->atts['name'], $separator );
+		$_ret .= $this->Form->hidden( $this->atts['name'], $value );
 		return $_ret;
 	}
 
